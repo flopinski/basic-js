@@ -48,35 +48,33 @@ class VigenereCipheringMachine {
     }
     return this.direct ? result.join('') : result.reverse().join('');
   }
-   
 
-   decrypt(message, key) {
-     if (!(message && key)) throw new Error('Incorrect arguments!');
+  decrypt(message, key) {
+    if (!(message && key)) throw new Error('Incorrect arguments!');
 
-     let messageArray = message.toUpperCase().split('');
-     let keyArray = key.toUpperCase().split('');
+    let messageArray = message.toUpperCase().split('');
+    let keyArray = key.toUpperCase().split('');
 
-     let k = 0;
-     let numsForKey = keyArray.map((el) => el.charCodeAt(0) - 65);
-     let result = [];
+    let k = 0;
+    let numsForKey = keyArray.map((el) => el.charCodeAt(0) - 65);
+    let result = [];
 
-     for (let i = 0; i < messageArray.length; i++) {
-       let position = messageArray[i].charCodeAt(0);
+    for (let i = 0; i < messageArray.length; i++) {
+      let position = messageArray[i].charCodeAt(0);
 
-       if (position >= 65 && position < 91) {
+      if (position >= 65 && position < 91) {
         result.push(
-           String.fromCharCode(
+          String.fromCharCode(
             65 + ((position - 65 - numsForKey[k % numsForKey.length] + 26) % 26)
-           )
-         );
+          )
+        );
 
-         k++;
-       } else result.push(messageArray[i]);
-     }
-     return this.direct ? result.join('') : result.reverse().join('');
-   }
+        k++;
+      } else result.push(messageArray[i]);
+    }
+    return this.direct ? result.join('') : result.reverse().join('');
+  }
 }
-
 
 module.exports = {
   VigenereCipheringMachine,

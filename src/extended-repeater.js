@@ -28,13 +28,14 @@ function repeater(
   let firstString = String(str);
   let result = [];
   let additionArr = [];
-  
-  let additionStr = String(addition)
-  // 'STRING', repeatTimes: 3, separator: '**', addition: 'PLUS', additionRepeatTimes: 3, additionSeparator: '00'
-  
-  for (let i = 0; i < additionRepeatTimes; i++) additionArr.push(additionStr)
 
-  for (let i = 0; i < repeatTimes; i++) result.push(firstString + additionArr.join(additionSeparator))
+  let additionStr = String(addition);
+  // 'STRING', repeatTimes: 3, separator: '**', addition: 'PLUS', additionRepeatTimes: 3, additionSeparator: '00'
+
+  for (let i = 0; i < additionRepeatTimes; i++) additionArr.push(additionStr);
+
+  for (let i = 0; i < repeatTimes; i++)
+    result.push(firstString + additionArr.join(additionSeparator));
 
   return result.join(separator);
 }

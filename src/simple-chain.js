@@ -13,7 +13,7 @@ const chainMaker = {
   addLink(value) {
     if (value === undefined) this.chain.push('( )');
     else {
-      value = "( " + value + " )"
+      value = '( ' + value + ' )';
       this.chain.push(value);
       return this;
     }
@@ -38,7 +38,7 @@ const chainMaker = {
   finishChain() {
     const result = this.chain.join('~~');
     this.chain = [];
-    return result
+    return result;
   },
 };
 
